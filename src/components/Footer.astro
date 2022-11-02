@@ -1,0 +1,114 @@
+---
+import { Image } from "@astrojs/image/components";
+import logo from "../images/logo.png";
+const menuFooters = [
+  { url: "#about", title: "О комплексе" },
+  { url: "#plan", title: "Планировки" },
+  { url: "#advantage", title: "Преимущества" },
+  { url: "#contact", title: "Контакты" },
+  { url: "https://mydomchel.ru/novostroiki/", title: "Новостройки Челябинска" },
+  { url: "https://mydomchel.ru/blog/", title: "Читайте в блоге" },
+];
+const footerTexts = [
+  { content: "АН «Аксиома»" },
+  { content: "ИП Балдина М.М." },
+  { content: "ОГРНИП" },
+  { content: "310745329400037" },
+  { content: "© Copyright 2022" },
+];
+const partnerTexts = [
+  { content: "Официальный партнер" },
+  { content: "СК «Голос Девелопмент» " },
+  { content: "Информация на сайте" },
+  { content: "не является публичной офертой" },
+  { content: "Все права принадлежат" },
+  { content: "СК «Голос Девелопмент» " },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-wrapper">
+      <div class="footer-wrapper__inner">
+        <div class="footer-wrapper__inner--item">
+          <a href="#"
+            ><Image src={logo} format="avif" width="150" alt="logo" />
+          </a>
+        </div>
+        <div class="footer-wrapper__inner--item">
+          <ul>
+            {
+              menuFooters.map((menuFooter) => (
+                <li class="footer__text">
+                  <a href={menuFooter.url} class="footer__text--link">
+                    {menuFooter.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="footer-wrapper__inner">
+        <div class="footer-wrapper__inner--item">
+          <ul>
+            {
+              footerTexts.map((footerText) => (
+                <li class="footer__text">{footerText.content}</li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="footer-wrapper__inner--item">
+          <ul>
+            {
+              partnerTexts.map((partnerText) => (
+                <li class="footer__text">{partnerText.content}</li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<style lang="scss">
+  .footer {
+    background: var(--white);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 0 30px;
+    &__text {
+      color: var(--abbey);
+      line-height: 1.2;
+      &--link {
+        color: var(--abbey);
+        &:hover {
+          color: var(--whisky);
+        }
+      }
+    }
+  }
+  .footer-wrapper {
+    display: flex;
+    max-width: 1040px;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-around;
+    gap: 20px 40px;
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 40px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .footer {
+      &__text {
+        font-size: 10px;
+      }
+    }
+  }
+</style>

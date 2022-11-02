@@ -1,0 +1,97 @@
+---
+import "../style/slide.css";
+const fourTabs = [
+  { dataIndexI: "9", urlImg: "/img/i-1-37-7.jpg", nameAlt: "37.7 кв.м" },
+  { dataIndexI: "10", urlImg: "/img/i-1-38-1.jpg", nameAlt: "38.1 кв.м" },
+  { dataIndexI: "11", urlImg: "/img/i-1-38-1a.jpg", nameAlt: "38.1 кв.м" },
+  { dataIndexI: "12", urlImg: "/img/i-1-38.jpg", nameAlt: "38 кв.м" },
+  { dataIndexI: "13", urlImg: "/img/i-1-48-9.jpg", nameAlt: "48.9 кв.м" },
+];
+const fiveTabs = [
+  { dataIndexI: "14", urlImg: "/img/i-2-48-2.jpg", nameAlt: "48.2 кв.м" },
+  { dataIndexI: "15", urlImg: "/img/i-2-56-9.jpg", nameAlt: "56.9 кв.м" },
+  { dataIndexI: "16", urlImg: "/img/i-2-58-9.jpg", nameAlt: "58.9 кв.м" },
+  { dataIndexI: "17", urlImg: "/img/i-2-59-2.jpg", nameAlt: "59.2 кв.м" },
+  { dataIndexI: "18", urlImg: "/img/i-2-59-2a.jpg", nameAlt: "59.2 кв.м" },
+  { dataIndexI: "19", urlImg: "/img/i-2-59.jpg", nameAlt: "59 кв.м" },
+  { dataIndexI: "20", urlImg: "/img/i-2-66-2.jpg", nameAlt: "66.2 кв.м" },
+  { dataIndexI: "21", urlImg: "/img/i-2-67-9.jpg", nameAlt: "67.9 кв.м" },
+];
+const sixTabs = [
+  { dataIndexI: "22", urlImg: "/img/i-3-90-1.jpg", nameAlt: "90.1 кв.м" },
+  { dataIndexI: "23", urlImg: "/img/i-4-114.jpg", nameAlt: "114 кв.м" },
+];
+---
+
+<div class="tabs__content">
+  <div class="tabs__item-ind" id="tab1_1">
+    <div class="gallery-container">
+      {
+        fourTabs.map((fourTab): any => (
+          <div class="gallery-item" data-index={fourTab.dataIndexI}>
+            <img
+              class="gallery-img"
+              src={fourTab.urlImg}
+              alt={fourTab.nameAlt}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="tabs__item-ind" id="tab1_2">
+    <div class="gallery-container">
+      {
+        fiveTabs.map((fiveTab): any => (
+          <div class="gallery-item" data-index={fiveTab.dataIndexI}>
+            <img
+              class="gallery-img"
+              src={fiveTab.urlImg}
+              alt={fiveTab.nameAlt}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="tabs__item-ind" id="tab1_3">
+    <div class="gallery-container">
+      {
+        sixTabs.map((sixTab): any => (
+          <div class="gallery-item" data-index={sixTab.dataIndexI}>
+            <img class="gallery-img" src={sixTab.urlImg} alt={sixTab.nameAlt} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+<script hoist>
+  import "../script/slide.js";
+</script>
+<style lang="scss">
+  .tabs__content {
+    padding: 30px;
+    background-color: var(--white);
+    margin-bottom: 30px;
+  }
+
+  .tabs__item-ind {
+    display: none;
+  }
+
+  .tabs__item-ind.active {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .plan-img {
+    display: block;
+    width: 250px;
+    height: 250px;
+    box-shadow: var(--shadow);
+  }
+</style>
+<style is:global></style>

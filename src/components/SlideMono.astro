@@ -1,0 +1,80 @@
+---
+import "../style/slide.css";
+const oneTabs = [
+  { dataIndex: "1", urlImg: "/img/m-1-50-7.jpg", nameAlt: "50.7 кв.м" },
+  { dataIndex: "2", urlImg: "/img/m-1-51-8.jpg", nameAlt: "51.8 кв.м" },
+];
+const twoTabs = [
+  { dataIndex: "3", urlImg: "/img/m-2-71-9.jpg", nameAlt: "71.9 кв.м" },
+  { dataIndex: "4", urlImg: "/img/m-2-74-9.jpg", nameAlt: "74.9 кв.м" },
+];
+const threeTabs = [
+  { dataIndex: "5", urlImg: "/img/m-3-85-8.jpg", nameAlt: "85.8 кв.м" },
+  { dataIndex: "6", urlImg: "/img/m-3-102.jpg", nameAlt: "102 кв.м" },
+  { dataIndex: "7", urlImg: "/img/m-3-113.jpg", nameAlt: "113 кв.м" },
+  { dataIndex: "8", urlImg: "/img/m-3-117-2.jpg", nameAlt: "117 кв.м" },
+];
+---
+
+<div class="tabs__content">
+  <div class="tabs__item" id="tab_1">
+    <div class="gallery-container">
+      {
+        oneTabs.map((oneTab): any => (
+          <div class="gallery-item" data-index={oneTab.dataIndex}>
+            <img class="gallery-img" src={oneTab.urlImg} alt={oneTab.nameAlt} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="tabs__item" id="tab_2">
+    <div class="gallery-container">
+      {
+        twoTabs.map((twoTab): any => (
+          <div class="gallery-item" data-index={twoTab.dataIndex}>
+            <img class="gallery-img" src={twoTab.urlImg} alt={twoTab.nameAlt} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="tabs__item" id="tab_3">
+    <div class="gallery-container">
+      {
+        threeTabs.map((threeTab): any => (
+          <div class="gallery-item" data-index={threeTab.dataIndex}>
+            <img
+              class="gallery-img"
+              src={threeTab.urlImg}
+              alt={threeTab.nameAlt}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+<script hoist>
+  import "../script/slide.js";
+</script>
+<style lang="scss">
+  .tabs__content {
+    padding: 30px;
+    background-color: var(--white);
+    margin-bottom: 30px;
+  }
+
+  .tabs__item {
+    display: none;
+  }
+
+  .tabs__item.active {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+<style is:global></style>

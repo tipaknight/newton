@@ -1,0 +1,135 @@
+---
+import SlideMono from "./SlideMono.astro";
+import SlideInd from "./SlideInd.astro";
+
+const tabItems = [
+  { data: "#tab_1", nameTab: "Кухня-столовая + комната" },
+  { data: "#tab_2", nameTab: "Кухня-столовая + 2 комнаты" },
+  { data: "#tab_3", nameTab: "Кухня-столовая + 3 комнаты" },
+];
+const tabTwoItems = [
+  { data: "#tab1_1", nameTab: "Кухня-столовая + комната" },
+  { data: "#tab1_2", nameTab: "Кухня-столовая + 2 комнаты" },
+  { data: "#tab1_3", nameTab: "Кухня-столовая + (3,4) комнаты" },
+];
+---
+
+<section class="plan" id="plan">
+  <div class="container">
+    <h2 class="plan__title-h2">Планировки квартир в монолитных домах</h2>
+    <div class="tabs">
+      <div class="tabs__nav">
+        {
+          tabItems.map((tabItem): any => (
+            <button class="tabs__nav-btn" type="button" data-tab={tabItem.data}>
+              {tabItem.nameTab}
+            </button>
+          ))
+        }
+      </div>
+      <SlideMono />
+    </div>
+    <h2 class="plan__title-h2">Планировки квартир в индивидуальных домах</h2>
+    <div class="tabs">
+      <div class="tabs__nav">
+        {
+          tabTwoItems.map((tabTwoItem): any => (
+            <button
+              class="tabs__nav-btn-ind"
+              type="button"
+              data-tab={tabTwoItem.data}
+            >
+              {tabTwoItem.nameTab}
+            </button>
+          ))
+        }
+      </div>
+      <SlideInd />
+    </div>
+  </div>
+</section>
+<script hoist>
+  import "../script/tabs.js";
+  import "../script/tabs-ind.js";
+</script>
+<style lang="scss">
+  .plan {
+    background: var(--pampas);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 0;
+    &__title-h2 {
+      text-align: center;
+      padding-bottom: 40px;
+    }
+  }
+
+  .tabs {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .tabs__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+  }
+
+  .tabs__nav-btn {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    background-color: var(--mercury);
+    border: 0;
+    border-right: 1px solid var(--abbey);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .tabs__nav-btn:last-child {
+    border-right: none;
+  }
+
+  .tabs__nav-btn:hover {
+    background-color: var(--whisky);
+  }
+
+  .tabs__nav-btn.active {
+    background-color: var(--shark);
+    border-right-color: var(--shark);
+    color: var(--white);
+  }
+  .tabs__nav-btn-ind {
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    background-color: var(--mercury);
+    border: 0;
+    border-right: 1px solid var(--abbey);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .tabs__nav-btn-ind:last-child {
+    border-right: none;
+  }
+
+  .tabs__nav-btn-ind:hover {
+    background-color: var(--whisky);
+  }
+
+  .tabs__nav-btn-ind.active {
+    background-color: var(--shark);
+    border-right-color: var(--shark);
+    color: var(--white);
+  }
+
+  @media screen and (max-width: 480px) {
+    .plan {
+      &__title-h2 {
+        font-size: 2.5rem;
+      }
+    }
+  }
+</style>

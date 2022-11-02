@@ -1,0 +1,70 @@
+---
+import "../style/_about.scss";
+import { Image } from "@astrojs/image/components";
+import aboutImg1 from "../images/newton-1.jpg";
+import aboutImg2 from "../images/newton-2.jpg";
+import Button from "./ui-components/Button.astro";
+import CallBtn from "./ui-components/CallBtn.astro";
+import Modal from "../components/Modal.astro";
+
+const titleOne = "Ньютон – микрорайон для полноценной семейной жизни";
+const contentOne =
+  "ЖК «Ньютон» объединяет в себе два микрорайона с единой архитектурной     концепцией. Расположенный в северо-западной части Челябинска, недалеко от ледовой арены «Трактор», комплекс поражает своими масштабами.";
+const titleTwo = "Концепция строительства";
+const contentTwo =
+  "Проектом предусмотрено строительство 35 домов от 13 до 23 этажей с          большим выбором планировочных решений. На данный момент «Ньютон» завершен на 85%. Застройщик «Голос Девелопмент» детально продумал комфортное внутреннее пространство: просторные холлы в домах, разнообразные тематические детские и спортивные площадки в каждом дворе.";
+const titleThree = "Квартиры в монолитных домах";
+const contentThree =
+  "Квартиры в монолитных домах сдаются в черновой отделке. В квартирах выполнена горизонтальная разводка отопления с защитной стяжкой пола. Стальные панельные радиаторы снабжены регуляторами температуры. Все приборы учета находятся в техническом помещении на этаже. Балконы и лоджии застеклены. Установлена входная металлическая дверь, унитаз и раковина.";
+const titleFour = "Квартиры в индустриальных домах";
+const contentFour =
+  "Индустриальные дома сдаются с частичной отделкой. Выполнены все коммуникации и работы по установке, как и в монолитных домах. Дополнительно выровнены и отштукатурены стены. По всей квартире монтируются белые матовые натяжные потолки. Выполнена разводка электричества по всей квартире без установки розеток и выключателей.";
+---
+
+<section class="about" id="about">
+  <div class="container about__container">
+    <h2 class="about__title-h2">О комплексе</h2>
+    <div class="about-wrapper">
+      <div class="about-wrapper__item">
+        <h3>{titleOne}</h3>
+        <p class="about-wrapper__item--text">{contentOne}</p>
+        <CallBtn />
+        <Button tape="button" idButton="button-1" dataButton="modal-1"
+          >Получить Презентацию</Button
+        >
+        <h3>{titleTwo}</h3>
+        <p class="about-wrapper__item--text">{contentTwo}</p>
+      </div>
+      <div class="about-wrapper__item">
+        <Image
+          class="about-wrapper__item--img"
+          src={aboutImg1}
+          format="avif"
+          alt="Купить квартиру в ЖК Ньютон"
+        />
+      </div>
+    </div>
+    <div class="about-wrapper rtl">
+      <div class="about-wrapper__item ltr">
+        <h3>{titleThree}</h3>
+        <p class="about-wrapper__item--text">{contentThree}</p>
+        <CallBtn />
+        <Button tape="button" idButton="button-1" dataButton="modal-1"
+          >Цена и Наличие</Button
+        >
+        <h3>{titleFour}</h3>
+        <p class="about-wrapper__item--text">{contentFour}</p>
+      </div>
+      <div class="about-wrapper__item">
+        <Image
+          class="about-wrapper__item--img"
+          src={aboutImg2}
+          format="avif"
+          alt="Ньютон - Челябинск"
+        />
+      </div>
+    </div>
+    <Modal valueName="Ньютон" valueProject="Презентация и цена" />
+  </div>
+  <style lang="scss"></style>
+</section>

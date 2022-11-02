@@ -1,0 +1,47 @@
+---
+const { idButton, dataButton } = Astro.props;
+---
+
+<button id={idButton} data-modal-button={dataButton} class="btn"
+  ><slot /><span class="arrow"
+    ><svg
+      width="29"
+      height="35"
+      viewBox="0 0 29 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 20L26 19"
+        stroke="#CDA274"
+        stroke-width="2"
+        stroke-linecap="square"
+        stroke-linejoin="round"></path>
+      <path
+        d="M17.2172 2L28 19.8206L17 38"
+        stroke="#CDA274"
+        stroke-width="2"
+        stroke-linecap="square"
+        stroke-linejoin="round"></path>
+    </svg>
+  </span>
+</button>
+<style>
+  .btn {
+    background: var(--shark);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3px 15px;
+    gap: 0 5px;
+    width: 260px;
+    height: 70px;
+    border-radius: 18px;
+    font-size: 18px;
+    color: var(--pampas);
+    margin: 10px 0;
+  }
+  .arrow {
+    padding-top: 5px;
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import "../style/_header.scss";
+import { Image } from "@astrojs/image/components";
+import logo from "../images/logo.png";
+
+const menuItems = [
+  { url: "#about", title: "О комплексе" },
+  { url: "#plan", title: "Планировки" },
+  { url: "#advantage", title: "Преимущества" },
+  { url: "#contact", title: "Контакты" },
+];
+---
+
+<header>
+  <nav id="navbar">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="#"><Image src={logo} width="150" alt="logo" /></a>
+        </div>
+        <ul class="menu">
+          {
+            menuItems.map((menuItem) => (
+              <li class="menu__item">
+                <a href={menuItem.url} class="menu__item--link">
+                  {menuItem.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="navbar__phone">
+          <a href="tel:+79517807060" class="navbar__phone--btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="30"
+              viewBox="0 0 24 30"
+            >
+              <g id="ic-mobile" transform="translate(-7.292 -1.481)">
+                <path
+                  id="Контур_2"
+                  data-name="Контур 2"
+                  d="M22.863,24.663H9.887V8.3H18.97V5.572H9.887V4.209H18.97V1.495L9.887,1.481a2.672,2.672,0,0,0-2.6,2.727V28.754a2.672,2.672,0,0,0,2.6,2.727H22.863a2.672,2.672,0,0,0,2.6-2.727V21.936h-2.6Zm0,4.091H9.887V27.39H22.863Z"
+                  transform="translate(0 0)"
+                  fill="#4D5053"></path>
+                <path
+                  id="Контур_3"
+                  data-name="Контур 3"
+                  d="M26.25,20.739l7.292-7.407-2.056-2.089-3.777,3.822V4.444H24.792V15.065l-3.777-3.822-2.056,2.089Z"
+                  transform="translate(-2.25)"
+                  fill="#4D5053"></path>
+              </g>
+            </svg>
+          </a>
+          <div class="navbar__phone--text">
+            <a href="tel:+79517807060" title="Позвонить с сайта"
+              >+7 951 780-70-60</a
+            >
+          </div>
+          <div class="burger">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<script hoist>
+  import "../script/navbar.js";
+</script>
+
+<style lang="scss"></style>

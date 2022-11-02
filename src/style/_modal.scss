@@ -1,0 +1,63 @@
+.modal-fon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--shark);
+  opacity: 0.95;
+}
+
+.modal-cart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__fon {
+    position: relative;
+    background: var(--white);
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-radius: 0 0 0 30px;
+
+    &--icon {
+      margin-left: auto;
+      cursor: pointer;
+    }
+  }
+}
+
+.text-form {
+  color: var(--shark);
+  padding: 5px 0;
+}
+
+.form-item {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--shark);
+
+  &::placeholder {
+    color: var(--whisky);
+  }
+}
+
+.btn-form {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  padding-top: 10px;
+}
+
+.modal-thank:target {
+  display: block;
+}
+
+.text-thank {
+  margin: auto;
+  font-size: 18px;
+  padding: 10px 0 30px;
+}

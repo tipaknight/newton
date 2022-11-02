@@ -1,0 +1,29 @@
+---
+import "../style/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+const { title } = Astro.props;
+---
+
+<html lang="ru-RU">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta
+      name="keywords"
+      content="ЖК Ньютон, жилой комплекс, новостройки Челябинска, цены на квартиры, планировки Ньютон, квартиры Челябинска"
+    />
+    <meta
+      name="description"
+      content="Ньютон – жилой комплекс Челябинска с квартирами повышенной комфортности. Купите квартиру от официального партнера СК Легион по ценам застройщика."
+    />
+    <meta name="page_type" content="Сайт ЖК Ньютон" />
+    <title>{title}</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

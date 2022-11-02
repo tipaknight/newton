@@ -1,0 +1,70 @@
+---
+import Button from "../components/ui-components/Button.astro";
+import Modal from "../components/Modal.astro";
+---
+
+<section class="section-hero">
+  <div class="container">
+    <p class="text-partner">
+      АН «Аксиома» - официальный партнер застройщика СК «Голос Девелопмент»
+    </p>
+    <div class="hero-inner">
+      <div class="hero-inner__content">
+        <h1 class="title-h1">Ньютон<br /> Челябинск</h1>
+        <p class="hero-inner__content--text">
+          Новые квартиры в монолитных и индустриальных домах
+        </p>
+        <Button tape="button" idButton="button-1" dataButton="modal-1"
+          >Проконсультироваться</Button
+        >
+      </div>
+    </div>
+    <Modal valueName="Ньютон" valueProject="Консультация" />
+  </div>
+  <script>
+    import "../script/modal.js";
+  </script>
+</section>
+<style lang="scss">
+  .section-hero {
+    background-image: url("../images/hero-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0 0 0 250px;
+    height: 100vh;
+  }
+  .text-partner {
+    padding: 90px 20px 0;
+  }
+  .hero-inner {
+    background: var(--mercury);
+    opacity: 0.9;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+    min-height: 200px;
+    border-radius: 0 150px 0 50px;
+    display: flex;
+
+    &__content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      padding: 30px 25px;
+      &--text {
+        font-size: 1.4rem;
+        margin: 10px 0;
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+</style>
